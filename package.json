@@ -15,7 +15,7 @@
     "lint:scss:fix": "stylelint --fix '**/*.scss'"
   },
   "author": "cernfortech",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "concurrently": "^9.1.0",
     "live-server": "^1.2.2",
