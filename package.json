@@ -1,0 +1,31 @@
+{
+  "name": "ui_template",
+  "version": "0.0.1",
+  "description": "Basic UI template",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "concurrently \"live-server\" \"npm run watch-styles\"",
+    "styles": "sass src/styles.scss dist/styles.css",
+    "watch-styles": "nodemon -e scss -x \"npm run styles\"",
+    "prettier": "prettier --write --ignore-unknown .",
+    "prettier:check": "prettier --check --ignore-unknown .",
+    "lint:scss": "stylelint '**/*.scss'",
+    "lint:scss:fix": "stylelint --fix '**/*.scss'"
+  },
+  "author": "cernfortech",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "live-server": "^1.2.2",
+    "nodemon": "^3.1.7",
+    "prettier": "3.3.3",
+    "sass": "^1.80.6",
+    "stylelint": "^16.10.0",
+    "stylelint-config-recommended": "^14.0.1",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-scss": "^6.8.1"
+  }
+}

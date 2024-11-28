@@ -1,0 +1,208 @@
+// Styles ====================================================
+
+// Headings
+:where(h1, h2, h3, h4, h5, h6),
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: var(
+    --heading__font-family,
+    var(--global-secondary__font-family)
+  );
+  font-size: var(--heading__font-size, inherit);
+  font-weight: var(
+    --heading__font-weight,
+    var(--global-primary__font-weight--heading)
+  );
+  font-style: var(--heading__font-style, normal);
+  color: var(--color__heading);
+  line-height: var(--heading__line-height, var(--global__line-height));
+  margin: var(--heading__margin, 0 0 1em);
+  text-rendering: optimizelegibility;
+}
+
+h1,
+.h1 {
+  --heading__font-size: 2rem;
+}
+
+h2,
+.h2 {
+  --heading__font-size: 1.75rem;
+}
+
+h3,
+.h3 {
+  --heading__font-size: 1.5rem;
+}
+
+h4,
+.h4 {
+  --heading__font-size: 1.25rem;
+}
+
+h5,
+.h5 {
+  --heading__font-size: 1rem;
+}
+
+h6,
+.h6 {
+  --heading__font-size: 0.75rem;
+}
+
+// Text Alignment
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+// Paragraphs and Text
+:where(p) {
+  font-size: var(--paragraph__font-size, inherit);
+  margin: var(--paragraph__margin, 0 0 1em);
+  line-height: var(--paragraph__line-height, inherit);
+  text-rendering: optimizelegibility;
+}
+
+:where(strong, b) {
+  font-weight: var(--global-primary__font-weight--bold);
+}
+
+// Divider
+:where(hr) {
+  height: var(--hr__height, 1px);
+  margin: var(--hr__margin, 1.5em 0);
+  background: var(--hr__background, var(--color__lines));
+  border: none;
+}
+
+// Links
+:where(a) {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (hover: hover) {
+  :where(a:hover) {
+    text-decoration: none;
+  }
+}
+
+// Unordered Lists
+:where(ul) {
+  list-style: none;
+  display: grid;
+  gap: var(--ul__gap, 0.5em);
+  font-size: var(--ul__font-size, inherit);
+  margin: var(--ul__margin, 0 0 1em);
+  padding: var(--ul__padding, 0);
+}
+
+:where(ul li) {
+  position: relative;
+  padding-left: var(--ul__li-padding-left, 1.25em);
+
+  &::before {
+    content: '';
+    display: var(--ul__li-icon--display, block);
+    width: var(--ul__li-icon--width, 0.75em);
+    height: var(--ul__li-icon--height, 0.75em);
+    border-radius: var(--ul__li-icon--border-radius, 50%);
+    background-color: var(
+      --ul__li-icon--background-color,
+      var(--color__lines--dark)
+    );
+    position: absolute;
+    top: var(--ul__li-icon--top, 0.4em);
+    left: var(--ul__li-icon--left, 0);
+  }
+}
+
+// Ordered Lists
+:where(ol) {
+  list-style-position: inside;
+  font-size: var(--ol__font-size, inherit);
+  margin: var(--ol__margin, 0 0 1em);
+  padding: 0;
+}
+
+// Description Lists
+:where(dl) {
+  margin: var(--dl__margin, 0 0 1em);
+}
+
+:where(dl dt) {
+  font-weight: var(
+    --dl__dt-font-weight,
+    var(--global-primary__font-weight--bold)
+  );
+}
+
+:where(dl dd) {
+  margin: var(--dl__dd-margin, 0 0 0.5em);
+}
+
+// Blockquote
+:where(blockquote) {
+  margin: var(--blockquote__margin, 0 0 1em);
+}
+
+// Figure
+:where(figure) {
+  margin: 0 0 1em;
+}
+
+// Summary
+:where(summary) {
+  // Add the correct display in all browsers
+  display: list-item;
+  cursor: pointer;
+}
+
+// Address
+:where(address) {
+  font-style: normal;
+  line-height: inherit;
+  margin-bottom: 1em;
+}
+
+// Tables
+:where(table) {
+  caption-side: bottom;
+  border-collapse: collapse;
+  margin: var(--table__margin, 0 0 1em);
+}
+
+:where(caption) {
+  padding: var(--table__caption-padding, 1em);
+  color: var(--table__caption-color, var(--color__text--medium));
+  text-align: var(--table__caption-text-align, left);
+}
+
+:where(th) {
+  // Matches default `<td>` alignment by inheriting `text-align`.
+  text-align: inherit;
+
+  // Fix alignment for Safari
+  text-align: -webkit-match-parent;
+  font-weight: var(
+    --table__th-font-weight,
+    var(--global-primary__font-weight--bold)
+  );
+}
+
+:where(thead, tbody, tfoot, tr, td, th) {
+  border: var(--table__content-border, 0.0625 solid var(--color__lines));
+  padding: var(--table__content-padding, 1em);
+}

@@ -1,0 +1,57 @@
+// Abstracts
+@use 'abstracts/media-queries' as mq;
+@use 'base/variables' as var;
+
+.header {
+  color: var(--color__white);
+  background-color: var(--color__brand1);
+  position: relative;
+  z-index: var(--header__z-index);
+
+  // A11Y SkipLink to get main__content area on the page
+  &__skip-link {
+    display: block;
+    top: -100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    border: none;
+    padding: var(--skiplink__padding, 0.5rem 0.75rem 0.75rem);
+    color: var(--skiplink__color, var(--color__white));
+    text-decoration: var(--skiplink__text-decoration, underline);
+    background-color: var(--skiplink__background-color, var(--global__color));
+    z-index: var(--skiplink__z-index);
+    transition: all var(--global__transition-duration)
+      var(--global__transition-function);
+
+    &:focus-visible {
+      top: 0;
+      outline: none;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: 100px;
+    aspect-ratio: 1;
+    background-image: url(#{var.$global__assets-path}/logo.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.main {
+  padding: 2rem 0;
+}
+
+.footer {
+  padding: 1rem 0;
+  color: var(--color__white);
+  background-color: var(--color__brand1);
+
+  p {
+    margin: 0;
+  }
+}

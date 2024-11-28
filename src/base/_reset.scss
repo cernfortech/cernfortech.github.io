@@ -1,0 +1,102 @@
+@use '../helpers/classes';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:where(html, body) {
+  max-width: 100vw;
+}
+
+:where(html) {
+  height: 100%;
+  width: 100vw; // to prevent the Layout Shift caused by Scrollbars
+  font-size: 100%;
+  text-size-adjust: 100%;
+}
+
+:where(body) {
+  margin: 0;
+  color: var(--global__color);
+  line-height: var(--global__line-height);
+  font-family: var(--global-primary__font-family);
+  font-weight: var(--global-primary__font-weight--normal);
+  background-color: var(--global__background-color);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgb(0 0 0 / 0);
+
+  // Fix Footer to the bottom of the page
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+}
+
+:where(img, picture, video, canvas, svg) {
+  display: block;
+  max-width: 100%;
+}
+
+// Add the correct vertical alignment in Chrome, Firefox, and Opera.
+:where(progress) {
+  vertical-align: baseline;
+}
+
+:where(iframe) {
+  border: none;
+}
+
+:where(p, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+:where(fieldset) {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+:where(legend) {
+  @extend %sr-only;
+}
+
+:where(pre, code, kbd, samp) {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+:where(
+    button,
+    input:is([type='button'], [type='reset'], [type='submit']),
+    input[type='file']::file-selector-button,
+    optgroup,
+    select
+  ) {
+  // Correct default text color - iOS 15+
+  color: inherit;
+}
+
+// A11Y
+:where(:focus-visible) {
+  outline: var(--global__a11y-focus);
+}
+
+// A11Y feature to minimize the amount of non-essential motion.
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

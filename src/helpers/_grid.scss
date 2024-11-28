@@ -1,0 +1,67 @@
+@use 'sass:meta';
+@use '../base/variables' as var;
+@use '../abstracts/media-queries' as mq;
+
+// Settings ==================================================
+
+$grid__column-count: 12 !default;
+$grid__row-gap: 24px !default;
+$grid__column-gap: 24px !default;
+
+// Mixins ====================================================
+@mixin grid($bp: zero) {
+  $name: #{$bp};
+
+  @for $i from 1 through $grid__column-count {
+    .#{$name}-#{$i} {
+      grid-column-end: span $i;
+    }
+    .#{$name}-offset-#{$i} {
+      grid-column-start: $i + 1;
+    }
+  }
+}
+
+@each $bp, $width in var.$breakpoints {
+  @include mq.mq($width) {
+    @include grid($bp);
+  }
+}
+
+// Styles ====================================================
+.row {
+  display: grid;
+  grid-template-columns: repeat($grid__column-count, minmax(1px, 1fr));
+
+  @if meta.type-of($grid__column-gap) == map {
+    @each $tmp-mq, $tmp-properties in $grid__column-gap {
+      @include mq.mq($tmp-mq) {
+        column-gap: #{$tmp-properties};
+      }
+    } // @each
+  } @else {
+    column-gap: $grid__column-gap;
+  }
+
+  @if meta.type-of($grid__row-gap) == map {
+    @each $tmp-mq, $tmp-properties in $grid__row-gap {
+      @include mq.mq($tmp-mq) {
+        row-gap: #{$tmp-properties};
+      }
+    } // @each
+  } @else {
+    row-gap: $grid__row-gap;
+  }
+}
+
+.grid-align-center {
+  align-self: center;
+}
+
+.grid-align-left {
+  align-self: start;
+}
+
+.grid-align-right {
+  align-self: flex-end;
+}

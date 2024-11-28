@@ -1,0 +1,285 @@
+@use '../helpers/classes';
+@use '../base/variables' as var;
+
+// Styles ==================================================
+.input {
+  &__root {
+    display: grid;
+    align-items: center;
+    gap: var(--input__root-gap, 0.75rem);
+    position: relative;
+
+    &--has-text-optional {
+      grid-template-columns: 1fr auto;
+    }
+
+    &--disabled {
+      label {
+        color: var(--input__label-color--disabled, var(--color__disabled));
+      }
+    }
+  }
+
+  // Field
+  &__field {
+    display: block;
+    width: 100%;
+    height: var(--input__field-height, 2.875rem);
+    padding-top: var(
+      --input__field-padding-top,
+      var(--global__field-padding--vt)
+    );
+    padding-bottom: var(
+      --input__field-padding-bottom,
+      var(--global__field-padding--vt)
+    );
+    padding-left: var(
+      --input__field-padding-left,
+      var(--global__field-padding--hz)
+    );
+    padding-right: var(
+      --input__field-padding-right,
+      var(--global__field-padding--hz)
+    );
+    font-size: var(--input__field-font-size, 1rem);
+    font-family: var(
+      --input__field-font-family,
+      var(--global-primary__font-family)
+    );
+    font-weight: var(
+      --input__field-font-weight,
+      var(--global-primary__font-weight--normal)
+    );
+    color: var(--input__field-color, var(--form__color));
+    background-color: var(
+      --input__field-background-color,
+      var(--form__background-color)
+    );
+    border: var(--input__field-border, 1px solid var(--form__border-color));
+    border-radius: var(
+      --input__field-border-radius,
+      var(--global__border-radius)
+    );
+    background-repeat: no-repeat;
+    background-position: calc(100% - var(--global__field-padding--hz)) 50%;
+    background-size: var(--input__field-background-size, 1.5rem auto);
+    box-shadow: var(--input__field-box-shadow);
+    transition: all var(--global__transition-duration)
+      var(--global__transition-function);
+
+    // Type: Contrast
+    &--contrast {
+      color: var(--form__color--contrast);
+      box-shadow: var(--input__field-box-shadow--contrast);
+      background-color: var(--form__background-color--contrast);
+      border: var(
+        --input__field-border--contrast,
+        1px solid var(--form__border-color--contrast)
+      );
+    }
+
+    // Placeholder text
+    &::placeholder {
+      color: var(--form__color--placeholder);
+    }
+
+    // Focus state
+    &:focus {
+      outline: none;
+      color: var(--input__field-color--focus, var(--form__color--focus));
+      box-shadow: var(--input__field-box-shadow--focus);
+      background-color: var(
+        --input__field-background-color--focus,
+        var(--form__background-color--focus)
+      );
+      border: var(
+        --input__field-border--focus,
+        1px solid var(--form__border-color--focus)
+      );
+    }
+
+    // Disabled/readonly state
+    &:disabled,
+    &[readonly] {
+      color: var(--form__color--disabled);
+      box-shadow: var(--input__field-box-shadow--disabled);
+      background-color: var(--form__background-color--disabled);
+      border: var(
+        --input__field-border--disabled,
+        1px solid var(--form__border-color--disabled)
+      );
+    }
+
+    // Error state
+    &--error {
+      color: var(--form__color--error);
+      box-shadow: var(--input__field-box-shadow--error);
+      background-color: var(--form__background-color--error);
+      border: var(
+        --input__field-border--error,
+        1px solid var(--form__border-color--error)
+      );
+      padding-right: var(--input__field-padding-right--error, 3.5rem);
+      background-image: url(#{var.$global__assets-path}/icon-error.svg);
+    }
+
+    // Success state
+    &--success {
+      box-shadow: var(--input__field-box-shadow--success);
+      padding-right: var(--input__field-padding-right--success, 3.5rem);
+      background-image: url(#{var.$global__assets-path}/icon-success.svg);
+    }
+
+    // Has Icon state
+    &--icon {
+      padding-left: var(--input__field-icon--padding-left, 2.625rem);
+    }
+
+    // Change field's default controls
+    &[type='number'] {
+      appearance: textfield;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        appearance: none;
+        margin: 0;
+      }
+    }
+
+    // Make clickable the whole area of date/time inputs
+    &[type='date']::-webkit-calendar-picker-indicator,
+    &[type='date']:focus::-webkit-calendar-picker-indicator,
+    &[type='time']::-webkit-calendar-picker-indicator,
+    &[type='time']:focus::-webkit-calendar-picker-indicator {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+    // Hide default icons of Search input
+    &[type='search'] {
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        display: none;
+      }
+
+      &::-ms-clear {
+        display: none;
+        height: 0;
+        width: 0;
+      }
+
+      &::-ms-reveal {
+        display: none;
+        height: 0;
+        width: 0;
+      }
+    }
+  }
+
+  &__textarea {
+    min-height: var(--textarea__min-height, 6.25rem);
+    background-position: calc(100% - var(--global__field-padding--hz))
+      var(--global__field-padding--vt);
+  }
+
+  // Default Select
+  &__select {
+    cursor: pointer;
+    word-wrap: normal;
+    appearance: none;
+    padding-right: var(--input__select-padding-right, 2.625rem);
+    background-size: var(--input__select-background-size, 0.75rem auto);
+    background-image: url(#{var.$global__assets-path}/icon-select.svg);
+
+    // Undo the opacity change from Chrome
+    &:disabled {
+      opacity: 1;
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  // Label
+  &__label {
+    display: block;
+    margin: 0;
+    line-height: var(--input__label-line-height, normal);
+    font-family: var(
+      --input__label-font-family,
+      var(--global-primary__font-family)
+    );
+    font-weight: var(
+      --input__label-font-weight,
+      var(--global-primary__font-weight--bold)
+    );
+
+    &--optional {
+      text-align: var(--input__label-text-align--optional, right);
+      color: var(--input__label-color--optional, var(--color__text--light));
+      font-size: var(--input__label-font-size--optional, 0.875rem);
+      font-family: var(
+        --input__label-font-family--optional,
+        var(--global-primary__font-family)
+      );
+    }
+  }
+
+  // Optional text above the field
+  &__hint {
+    @extend %global__input-hint;
+  }
+
+  // Field's wrapper
+  &__wrapper {
+    grid-column: 1 / -1;
+    position: relative;
+
+    &::before {
+      font-size: var(--input__wrapper-icon-size, var(--global__icon--normal));
+      line-height: normal;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: var(--global__field-padding--hz);
+    }
+
+    &--textarea {
+      &::before {
+        top: var(--input__wrapper-textarea--top, 0.75rem);
+        transform: none;
+      }
+    }
+  }
+
+  // Error message
+  &__message {
+    grid-column: 1 / -1;
+
+    @extend %global__input-message;
+  }
+}
+
+// Remove the dropdown arrow only from text type inputs built with datalists in Chrome.
+// See https://stackoverflow.com/a/54997118
+[list]:not(
+    [type='date'],
+    [type='datetime-local'],
+    [type='month'],
+    [type='week'],
+    [type='time']
+  )::-webkit-calendar-picker-indicator {
+  display: none !important;
+}
+
+textarea {
+  resize: vertical;
+}

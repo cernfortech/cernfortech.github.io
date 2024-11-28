@@ -1,0 +1,143 @@
+:root {
+  color-scheme: light;
+  --global__color: #222;
+  --global__line-height: 1.5;
+  --global__background-color: #fff;
+  --global__background-color--highlight: #fff;
+  --global__max-width: 112.5rem; // 1800px
+  --global__z-index: 900;
+  --global__clickable-area: 2.75rem; // 44px
+
+  // Fonts
+  --global-primary__font-weight--normal: 400;
+  --global-primary__font-weight--bold: 700;
+  --global-primary__font-weight--heading: 400;
+
+  // Font Family
+  --global-primary__font-family: 'Montserrat', sans-serif;
+  --global-secondary__font-family: 'Esteban', serif;
+
+  --global-icon__font-family: 'FontAwesome', fantasy;
+  --global__icon--normal: 1.25rem; // 20px
+
+  // Global Indents
+  --global__sidegap: 24px;
+
+  --global__sidegap-zero: 24px;
+  --global__sidegap-medium: 32px;
+  --global__sidegap-large: 48px;
+  --global__sidegap-xxlarge: 96px;
+
+  // Brand Colors
+  --color__brand1: #21844a;
+  --color__brand2: #5e9cf8;
+  --color__brand3: #f85eba;
+  --color__brand4: #f8e95e;
+  --color__brand5: #f8955e;
+
+  // Default Colors
+  --color__white: #fff;
+  --color__black: #000;
+  --color__gray: #ccc;
+
+  // Alert Colors
+  --color__error: #f85059;
+  --color__success: #21b05c;
+  --color__info: #0078ce;
+
+  // Typography Colors
+  --color__heading: var(--global__color);
+  --color__text: var(--global__color);
+  --color__text--medium: #333;
+  --color__text--light: #666;
+  --color__text--white: var(--color__white);
+  --color__link: var(--global__color);
+
+  // Background Colors
+  --color__background-color--white: var(--color__white);
+  --color__background-color--light: #f6f4f3;
+  --color__background-color--medium: #edebe9;
+  --color__background-color--dark: #e5e2df;
+
+  // Interface Colors
+  --color__lines: rgb(0 0 0 / 0.1);
+  --color__lines--dark: rgb(0 0 0 / 0.2);
+  --color__disabled: #939393;
+  --color__overlay: radial-gradient(
+    81.04% 81.03% at 49.08% 81.03%,
+    rgb(0 0 0 / 0.05) 0%,
+    rgb(0 0 0 / 0.5) 100%
+  );
+
+  // Accessibility Colors
+  --global__a11y-focus: 2px solid #0085ff;
+
+  // Form Colors
+  --form__color: var(--global__color);
+  --form__background-color: var(--color__background-color--light);
+  --form__border-color: transparent;
+
+  --form__color--contrast: var(--global__color);
+  --form__background-color--contrast: var(--color__background-color--white);
+  --form__border-color--contrast: rgb(0 0 0 / 0.2);
+
+  --form__color--placeholder: rgb(0 0 0 / 0.7);
+
+  --form__color--focus: var(--global__color);
+  --form__background-color--focus: var(--color__background-color--light);
+  --form__border-color--focus: rgb(0 0 0 / 0.2);
+
+  --form__color--disabled: rgb(0 0 0 / 0.5);
+  --form__background-color--disabled: var(--color__background-color--light);
+  --form__border-color--disabled: transparent;
+
+  --form__color--error: var(--global__color);
+  --form__background-color--error: var(--message__background-color--error);
+  --form__border-color--error: var(--message__border-color--error);
+
+  --form__color--success: var(--global__color);
+  --form__background-color--success: var(--color__background-color--light);
+  --form__border-color--success: transparent;
+
+  // Global Box Shadows
+  --global__box-shadow--light: 2px 2px 7px rgb(0 0 0 / 0.1);
+  --global__box-shadow--light-big: 10px 10px 80px rgb(0 0 0 / 0.1),
+    2px 2px 20px rgb(0 0 0 / 0.05);
+  --global__box-shadow--light-small: 1px 1px 3px rgb(0 0 0 / 0.1);
+
+  --global__box-shadow--dark: 2px 2px 7px rgb(0 0 0 / 0.2);
+  --global__box-shadow--dark-big: 10px 10px 80px rgb(0 0 0 / 0.1),
+    2px 2px 20px rgb(0 0 0 / 0.1);
+  --global__box-shadow--dark-small: 1px 1px 3px rgb(0 0 0 / 0.2);
+
+  --global__box-shadow--inner: 2px 2px 10px rgb(0 0 0 / 0.3) inset;
+  --global__box-shadow--inner-small: 1px 1px 2px rgb(0 0 0 / 0.1) inset;
+
+  // Interface Sugar
+  --global__border-radius: 6px;
+  --global__transition-duration: 0.2s; // use for visually large elements
+  --global__transition-function: ease-out;
+  --global__transition-duration--fast: 0.15s; // use for visually small elements
+  --global__transition-function--fast: ease-in;
+  --global__transition-duration--slow: 0.5s; // use for mask etc
+  --global__transition-function--slow: ease;
+
+  // Z-index
+  --header__z-index: calc(var(--global__z-index) + 10);
+  --preloader__z-index: calc(var(--global__z-index) + 11);
+  --skiplink__z-index: calc(var(--global__z-index) + 99);
+
+  // Images ratio
+  --global__image-ratio: 1;
+
+  // Form controls
+  --global__field-padding--vt: 0.6875rem;
+  --global__field-padding--hz: 0.875rem;
+
+  // A11Y feature to minimize the amount of non-essential motion.
+  @media (prefers-reduced-motion) {
+    --global__transition-duration: 0s;
+    --global__transition-duration--fast: 0s;
+    --global__transition-duration--slow: 0s;
+  }
+}

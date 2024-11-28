@@ -1,0 +1,10 @@
+@use '../abstracts/media-queries' as mq;
+
+@mixin global__indent($properties) {
+  @each $tmp-mq, $tmp-properties in $properties {
+    @include mq.mq($tmp-mq) {
+      padding-left: #{$tmp-properties};
+      padding-right: #{$tmp-properties};
+    }
+  } // @each
+}

@@ -1,0 +1,158 @@
+@use '../helpers/classes';
+
+// Styles ==================================================
+
+.radio {
+  display: grid;
+  gap: var(--radio__root-gap, 0.5em);
+  font-size: var(--radio__label-font-size, 1rem);
+  position: relative;
+  --global__input-hint--padding-left: 2rem;
+
+  // &--error {}
+
+  // Input
+  &__input {
+    position: absolute;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+
+    &:checked,
+    &:checked:focus {
+      + .radio__label {
+        color: var(--radio__label-color--checked, var(--global__color));
+
+        &::before {
+          box-shadow: var(
+            --radio__icon-box-shadow--checked,
+            0 0 0 1px var(--color__lines) inset
+          );
+          background-color: var(
+            --radio__icon-background-color--checked,
+            var(--color__background-color--light)
+          );
+          background-image: var(
+            --radio__icon-background-image--checked,
+            radial-gradient(var(--color__brand1) 40%, transparent 42%)
+          );
+        }
+
+        // &--error {
+        //   @include mix.settings($radio__label--checked);
+        // }
+      }
+    }
+
+    &:disabled {
+      + .radio__label {
+        color: var(--radio__label-color--disabled, var(--color__disabled));
+        cursor: default;
+
+        &::before {
+          box-shadow: var(
+            --radio__icon-box-shadow--disabled,
+            0 0 0 1px var(--color__lines) inset
+          );
+          background-color: var(
+            --radio__icon-background-color--disabled,
+            var(--color__background-color--medium)
+          );
+        }
+      }
+    }
+
+    &:focus {
+      outline: none;
+
+      + .radio__label {
+        &::before {
+          box-shadow: var(
+            --radio__icon-box-shadow--focus,
+            0 0 0 1px var(--color__lines) inset
+          );
+          background-color: var(
+            --radio__icon-background-color--focus,
+            var(--color__background-color--dark)
+          );
+        }
+      }
+    }
+
+    &:focus-visible {
+      + .radio__label {
+        &::before {
+          outline: var(--global__a11y-focus);
+          outline-offset: -1px;
+        }
+      }
+    }
+  }
+
+  // Label
+  &__label {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--radio__label-gap, 0.5em);
+    color: var(--radio__label-color, var(--global__color));
+    font-size: inherit;
+    font-family: var(
+      --radio__label-font-family,
+      var(--global-primary__font-family)
+    );
+    align-content: var(--radio__label-align-content, start);
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      width: var(--radio__icon-size, 1.5rem);
+      height: var(--radio__icon-size, 1.5rem);
+      border-radius: var(--radio__icon-border-radius, 50%);
+      box-shadow: var(
+        --radio__icon-box-shadow,
+        0 0 0 1px var(--color__lines) inset
+      );
+      background-color: var(
+        --radio__icon-background-color,
+        var(--color__background-color--light)
+      );
+      transition-property: all;
+      transition-duration: var(
+        --radio__icon-transition-duration,
+        var(--global__transition-duration)
+      );
+      transition-timing-function: var(
+        --radio__icon-transition-function,
+        var(--global__transition-function)
+      );
+    }
+
+    &--error {
+      color: var(--radio__label-color--error, var(--color__error));
+
+      &::before {
+        background-image: var(--radio__icon-background-image--error, none);
+        box-shadow: var(
+          --radio__icon-box-shadow--error,
+          0 0 0 1px var(--color__error) inset
+        );
+        background-color: var(
+          --radio__icon-background-color--error,
+          var(--message__background-color--error)
+        );
+      }
+    }
+  }
+
+  // Error Message
+  &__message {
+    @extend %global__input-message;
+  }
+
+  // Hint Message
+  &__hint {
+    @extend %global__input-hint;
+  }
+}

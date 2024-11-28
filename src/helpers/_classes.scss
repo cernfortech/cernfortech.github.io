@@ -1,0 +1,134 @@
+@use '../base/mixins' as mix;
+@use '../base/variables' as var;
+@use '../abstracts/media-queries' as mq;
+
+// Styles ====================================================
+
+%container,
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--global__max-width);
+
+  @include mix.global__indent(var.$global__padding);
+}
+
+%clickable,
+.clickable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--global__clickable-area);
+  height: var(--global__clickable-area);
+}
+
+// A11Y Classes
+%sr-only,
+.sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+// Visibility Classes
+.hidden {
+  display: none;
+}
+
+// Lazy load image
+%lazy-load-container {
+  width: 100%;
+  height: auto;
+
+  img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+// Forms
+%global__input-hint,
+.global__input-hint {
+  color: var(--global__input-hint--color, var(--color__text--light));
+  font-size: var(--global__input-hint--font-size, 0.875em);
+  margin: var(--global__input-hint--margin, 0);
+  font-family: var(
+    --global__input-hint--font-family,
+    var(--global-primary__font-family)
+  );
+  padding-left: var(--global__input-hint--padding-left, 0);
+}
+
+%global__input-message,
+.global__input-message {
+  color: var(--global__input-message--color, var(--color__error));
+  font-size: var(--global__input-message--font-size, 0.875em);
+  margin: var(--global__input-message--margin, 0);
+  font-family: var(
+    --global__input-message--font-family,
+    var(--global-primary__font-family)
+  );
+  padding-left: var(--global__input-message--padding-left, 0);
+}
+
+// Visibility classes
+.mobile-hidden {
+  @include mq.mq($until: large) {
+    display: none !important;
+  }
+}
+
+.tablet-hidden {
+  @include mq.mq(large, xlarge) {
+    display: none !important;
+  }
+}
+
+.desktop-hidden {
+  @include mq.mq(xlarge) {
+    display: none !important;
+  }
+}
+
+.mobile-only {
+  @include mq.mq(large) {
+    display: none !important;
+  }
+}
+
+.tablet-only {
+  @include mq.mq($until: large) {
+    display: none !important;
+  }
+
+  @include mq.mq(xlarge) {
+    display: none !important;
+  }
+}
+
+.desktop-only {
+  @include mq.mq($until: xlarge) {
+    display: none !important;
+  }
+}
+
+.xdesktop-hidden {
+  @include mq.mq(xxlarge) {
+    display: none !important;
+  }
+}
+
+.xdesktop-only {
+  @include mq.mq($until: xxlarge) {
+    display: none !important;
+  }
+}
