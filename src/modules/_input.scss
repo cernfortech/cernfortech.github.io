@@ -1,5 +1,5 @@
-@use "../helpers/classes";
-@use "../base/variables" as var;
+@use '../helpers/classes';
+@use '../base/variables' as var;
 
 // Styles ==================================================
 .input {
@@ -18,13 +18,24 @@
         color: var(--input__label-color--disabled, var(--color__disabled));
       }
     }
+
+    &--prefix {
+      display: grid;
+      grid-template-columns: 95px 1fr;
+      gap: 18px;
+      align-content: start;
+
+      .input__wrapper {
+        grid-column: auto;
+      }
+    }
   }
 
   // Field
   &__field {
     display: block;
     width: 100%;
-    height: var(--input__field-height, 2.875rem);
+    height: var(--input__field-height, 3rem);
     padding-top: var(
       --input__field-padding-top,
       var(--global__field-padding--vt)
@@ -41,7 +52,7 @@
       --input__field-padding-right,
       var(--global__field-padding--hz)
     );
-    font-size: var(--input__field-font-size, 1rem);
+    font-size: var(--input__field-font-size, 0.875rem);
     font-family: var(
       --input__field-font-family,
       var(--global-primary__font-family)
@@ -66,17 +77,6 @@
     box-shadow: var(--input__field-box-shadow);
     transition: all var(--global__transition-duration)
       var(--global__transition-function);
-
-    // Type: Contrast
-    &--contrast {
-      color: var(--form__color--contrast);
-      box-shadow: var(--input__field-box-shadow--contrast);
-      background-color: var(--form__background-color--contrast);
-      border: var(
-        --input__field-border--contrast,
-        1px solid var(--form__border-color--contrast)
-      );
-    }
 
     // Placeholder text
     &::placeholder {
@@ -132,11 +132,11 @@
 
     // Has Icon state
     &--icon {
-      padding-left: var(--input__field-icon--padding-left, 2.625rem);
+      padding-left: var(--input__field-icon--padding-left, 2rem);
     }
 
     // Change field's default controls
-    &[type="number"] {
+    &[type='number'] {
       appearance: textfield;
 
       &::-webkit-inner-spin-button,
@@ -147,10 +147,10 @@
     }
 
     // Make clickable the whole area of date/time inputs
-    &[type="date"]::-webkit-calendar-picker-indicator,
-    &[type="date"]:focus::-webkit-calendar-picker-indicator,
-    &[type="time"]::-webkit-calendar-picker-indicator,
-    &[type="time"]:focus::-webkit-calendar-picker-indicator {
+    &[type='date']::-webkit-calendar-picker-indicator,
+    &[type='date']:focus::-webkit-calendar-picker-indicator,
+    &[type='time']::-webkit-calendar-picker-indicator,
+    &[type='time']:focus::-webkit-calendar-picker-indicator {
       cursor: pointer;
       position: absolute;
       top: 0;
@@ -161,7 +161,7 @@
     }
 
     // Hide default icons of Search input
-    &[type="search"] {
+    &[type='search'] {
       &::-webkit-search-decoration,
       &::-webkit-search-cancel-button,
       &::-webkit-search-results-button,
@@ -184,7 +184,7 @@
   }
 
   &__textarea {
-    min-height: var(--textarea__min-height, 6.25rem);
+    min-height: var(--textarea__min-height, 9.625rem);
     background-position: calc(100% - var(--global__field-padding--hz))
       var(--global__field-padding--vt);
   }
@@ -252,6 +252,19 @@
       left: var(--global__field-padding--hz);
     }
 
+    &--icon-flag {
+      &::before {
+        content: '';
+        width: 14px;
+        height: 14px;
+        left: 10px;
+        padding-right: 1rem;
+        background-image: url(#{var.$global__assets-path}/ar.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
     &--textarea {
       &::before {
         top: var(--input__wrapper-textarea--top, 0.75rem);
@@ -271,11 +284,11 @@
 // Remove the dropdown arrow only from text type inputs built with datalists in Chrome.
 // See https://stackoverflow.com/a/54997118
 [list]:not(
-    [type="date"],
-    [type="datetime-local"],
-    [type="month"],
-    [type="week"],
-    [type="time"]
+    [type='date'],
+    [type='datetime-local'],
+    [type='month'],
+    [type='week'],
+    [type='time']
   )::-webkit-calendar-picker-indicator {
   display: none !important;
 }

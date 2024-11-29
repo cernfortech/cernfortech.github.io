@@ -1,3 +1,5 @@
+@use '../abstracts/media-queries' as mq;
+
 // Styles ====================================================
 
 // Headings
@@ -19,39 +21,65 @@
   );
   font-style: var(--heading__font-style, normal);
   color: var(--color__heading);
-  line-height: var(--heading__line-height, var(--global__line-height));
+  line-height: var(--heading__line-height, 1);
   margin: var(--heading__margin, 0 0 1em);
+  text-align: var(--heading__text-align, center);
+  text-shadow: var(--heading__text-shadow, 1px 1px 0 rgb(0 0 0 / 0.5));
   text-rendering: optimizelegibility;
 }
 
 h1,
 .h1 {
-  --heading__font-size: 2rem;
+  --heading__font-size: 3rem;
+
+  @include mq.mq(large) {
+    --heading__font-size: 5rem;
+  }
 }
 
 h2,
 .h2 {
-  --heading__font-size: 1.75rem;
+  --heading__font-size: 2.625rem;
+
+  @include mq.mq(large) {
+    --heading__font-size: 4.25rem;
+  }
 }
 
 h3,
 .h3 {
-  --heading__font-size: 1.5rem;
+  --heading__font-size: 2.25rem;
+
+  @include mq.mq(large) {
+    --heading__font-size: 3.75rem;
+  }
 }
 
 h4,
 .h4 {
-  --heading__font-size: 1.25rem;
+  --heading__font-size: 1.75rem;
+
+  @include mq.mq(large) {
+    --heading__font-size: 3rem;
+  }
 }
 
 h5,
 .h5 {
-  --heading__font-size: 1rem;
+  --heading__font-size: 1.5rem;
+
+  @include mq.mq(large) {
+    --heading__font-size: 2.5rem;
+  }
 }
 
 h6,
 .h6 {
-  --heading__font-size: 0.75rem;
+  --heading__font-size: 1.25rem;
+
+  @include mq.mq(large) {
+    --heading__font-size: 2rem;
+  }
 }
 
 // Text Alignment
@@ -90,12 +118,12 @@ h6,
 // Links
 :where(a) {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 @media (hover: hover) {
   :where(a:hover) {
-    text-decoration: none;
+    text-decoration: underline;
   }
 }
 
@@ -114,7 +142,7 @@ h6,
   padding-left: var(--ul__li-padding-left, 1.25em);
 
   &::before {
-    content: "";
+    content: '';
     display: var(--ul__li-icon--display, block);
     width: var(--ul__li-icon--width, 0.75em);
     height: var(--ul__li-icon--height, 0.75em);

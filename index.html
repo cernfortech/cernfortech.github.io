@@ -29,147 +29,206 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Esteban&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://kit.fontawesome.com/dab2e3f7a4.js"
-      crossorigin="anonymous"
-    ></script>
     <link rel="stylesheet" type="text/css" href="dist/styles.css" />
   </head>
   <body>
     <header class="header">
-      <a href="#main-content" class="header__skip-link">Skip to main content</a>
-      <div class="container">
-        <a href="/" class="header__logo" title="Logo Title"></a>
-      </div>
+      <nav class="container">
+        <ul class="menu">
+          <li class="menu-item">
+            <a class="menu-link" href="#mission"><span>Our mission</span></a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="#services"><span>Services</span></a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="#industries"><span>Industries</span></a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="#clients"><span>Clients</span></a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="#commitment"><span>Commitment</span></a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="#contact"><span>Contact</span></a>
+          </li>
+        </ul>
+      </nav>
+      <i class="button--menu"><span class="sr-only">Mobile menu</span></i>
     </header>
-    <main class="main" id="main__content">
+
+    <h1 class="sr-only">SEO title about innovations</h1>
+
+    <section class="slide slide--main" id="slide--main">
       <div class="container">
-        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
-        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
-        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
-        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h6>
-        <form class="form row" action="action">
-          <div class="zero-12 xlarge-6">
-            <fieldset class="fieldset">
-              <legend>Legend</legend>
-              <div class="input__root">
-                <label class="input__label" for="input1">Label 1</label>
-                <div class="input__wrapper fa-regular fa-user">
-                  <input
-                    class="input__field input__field--icon"
-                    type="text"
-                    placeholder="Type here smth"
-                    name="input1"
-                    id="input1"
-                  />
-                </div>
-              </div>
-              <div class="input__root">
-                <label class="input__label" for="input2">Label 2</label>
-                <div class="input__wrapper">
-                  <input
-                    class="input__field"
-                    type="password"
-                    placeholder="Type here smth"
-                    name="input2"
-                    id="input2"
-                  />
-                </div>
-              </div>
-              <div class="input__root">
-                <label class="input__label" for="input3">Label 3</label>
-                <div class="input__wrapper">
-                  <textarea
-                    class="input__field input__textarea"
-                    name="input3"
-                    id="input3"
-                  ></textarea>
-                </div>
-              </div>
-              <div class="checkbox">
+        <div class="slide__welcome">
+          <h2 class="slide__title">Empowering Innovation Everywhere</h2>
+          <p class="slide__text slide__welcome--text">
+            Driving the future with expert solutions in AI, blockchain,
+            technology, and sustainability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide--contact" id="slide--contact">
+      <div class="container container--content">
+        <h2 class="slide__title">Drop us a line</h2>
+
+        <form class="slide__form" action="/action">
+          <fieldset class="fieldset">
+            <legend>Contact form</legend>
+            <div class="input__root">
+              <div class="input__wrapper">
                 <input
-                  class="checkbox__input"
-                  type="checkbox"
-                  name="input5"
-                  id="input5"
+                  class="input__field"
+                  type="text"
+                  placeholder="Your name"
+                  name="contact-name"
+                  id="contact-name"
                 />
-                <label class="checkbox__label" for="input5"
-                  >Consent Checkbox</label
-                >
               </div>
-              <div class="radio">
+            </div>
+            <div class="input__root">
+              <div class="input__wrapper">
                 <input
-                  class="radio__input"
-                  type="radio"
-                  name="input6"
-                  id="input6"
+                  class="input__field"
+                  type="email"
+                  placeholder="Your email address"
+                  name="contact-email"
+                  id="contact-email"
                 />
-                <label class="radio__label" for="input6"
-                  >Make your choice</label
-                >
               </div>
-            </fieldset>
-          </div>
+            </div>
+            <div class="input__root input__root--prefix">
+              <div class="input__wrapper input__wrapper--icon-flag">
+                <input
+                  class="input__field input__field--icon"
+                  type="number"
+                  placeholder="+54"
+                  name="contact-prefix-phone"
+                  id="contact-prefix-phone"
+                />
+              </div>
+              <div class="input__wrapper">
+                <input
+                  class="input__field"
+                  type="tel"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  placeholder="Enter your phone"
+                  name="contact-phone"
+                  id="contact-phone"
+                />
+              </div>
+            </div>
+            <div class="input__root">
+              <div class="input__wrapper">
+                <input
+                  class="input__field"
+                  type="text"
+                  placeholder="Company/Organization (if applicable)"
+                  name="contact-company"
+                  id="contact-company"
+                />
+              </div>
+            </div>
+            <div class="input__root">
+              <div class="input__wrapper">
+                <textarea
+                  class="input__field input__textarea"
+                  placeholder="Enter your message"
+                  name="contact-textarea"
+                  id="contact-textarea"
+                ></textarea>
+              </div>
+            </div>
+            <button type="submit" class="button button--submit">
+              <span>Submit</span>
+            </button>
+          </fieldset>
         </form>
+      </div>
+    </section>
+
+    <a class="goto__link" id="goto__down" href="#"
+      ><span class="sr-only">Go to the next slide</span></a
+    >
+    <a class="goto__link goto__link--up" id="goto__up" href="#slide--main"
+      ><span class="sr-only">Go to the first slide</span></a
+    >
+
+    <footer class="footer">
+      <div class="footer__item">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-          distinctio doloremque. Id dignissimos consectetur, laboriosam odit
-          iusto expedita dolorum reiciendis! Corporis quibusdam rem debitis eum
-          quis temporibus cupiditate nulla officiis?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-          distinctio doloremque. Id dignissimos consectetur, laboriosam odit
-          iusto expedita dolorum reiciendis! Corporis quibusdam rem debitis eum
-          quis temporibus cupiditate nulla officiis?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-          distinctio doloremque. Id dignissimos consectetur, laboriosam odit
-          iusto expedita dolorum reiciendis! Corporis quibusdam rem debitis eum
-          quis temporibus cupiditate nulla officiis?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-          distinctio doloremque. Id dignissimos consectetur, laboriosam odit
-          iusto expedita dolorum reiciendis! Corporis quibusdam rem debitis eum
-          quis temporibus cupiditate nulla officiis?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-          distinctio doloremque. Id dignissimos consectetur, laboriosam odit
-          iusto expedita dolorum reiciendis! Corporis quibusdam rem debitis eum
-          quis temporibus cupiditate nulla officiis?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-          distinctio doloremque. Id dignissimos consectetur, laboriosam odit
-          iusto expedita dolorum reiciendis! Corporis quibusdam rem debitis eum
-          quis temporibus cupiditate nulla officiis?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-          distinctio doloremque. Id dignissimos consectetur, laboriosam odit
-          iusto expedita dolorum reiciendis! Corporis quibusdam rem debitis eum
-          quis temporibus cupiditate nulla officiis?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-          distinctio doloremque. Id dignissimos consectetur, laboriosam odit
-          iusto expedita dolorum reiciendis! Corporis quibusdam rem debitis eum
-          quis temporibus cupiditate nulla officiis?
+          Driving the future with expert solutions in AI, blockchain,
+          technology, and sustainability
         </p>
       </div>
-    </main>
-    <footer class="footer">
-      <div class="container">
-        <p class="footer__copyright">Copyright</p>
+      <div class="footer__item">
+        <ul class="footer__list">
+          <li class="footer__list-item">
+            <a class="footer__list-link" href="/">Our mission</a>
+          </li>
+          <li class="footer__list-item">
+            <a class="footer__list-link" href="/">Services</a>
+          </li>
+          <li class="footer__list-item">
+            <a class="footer__list-link" href="/">Industries</a>
+          </li>
+          <li class="footer__list-item">
+            <a class="footer__list-link" href="/">Clients</a>
+          </li>
+          <li class="footer__list-item">
+            <a class="footer__list-link" href="/">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__item">
+        <ul class="footer__list">
+          <li class="footer__list-item">
+            <a class="footer__list-link" href="/">Careers</a>
+          </li>
+          <li class="footer__list-item">
+            <a class="footer__list-link" href="/">Privacy Policy</a>
+          </li>
+          <li class="footer__list-item">
+            <a class="footer__list-link" href="/">Legal</a>
+          </li>
+          <li class="footer__list-item">
+            <a class="footer__list-link" href="/">Cookies</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__item">
+        <h3 class="footer__title">Social media</h3>
+        <ul class="social__list">
+          <li class="social__list-item">
+            <a class="social__list-item--insta" href="#" title="Instagram"
+              >Instagram</a
+            >
+          </li>
+          <li class="social__list-item">
+            <a class="social__list-item--x" href="#" title="X">X</a>
+          </li>
+          <li class="social__list-item">
+            <a class="social__list-item--in" href="#" title="LinkedIn"
+              >LinkedIn</a
+            >
+          </li>
+          <li class="social__list-item">
+            <a class="social__list-item--vector" href="#" title="Vector"
+              >Vector</a
+            >
+          </li>
+        </ul>
       </div>
     </footer>
+    <p class="footer__copyright">
+      Copyright &copy; 2024 Tether Operations Limited. All rights reserved.
+    </p>
   </body>
 </html>

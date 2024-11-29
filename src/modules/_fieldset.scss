@@ -1,7 +1,7 @@
 // Styles ==================================================
 .fieldset {
   display: grid;
-  gap: var(--fieldset__gap, 1rem);
+  gap: var(--fieldset__gap, 1.25rem);
   align-items: start;
   margin-bottom: 1rem;
 }

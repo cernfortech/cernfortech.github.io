@@ -1,39 +1,31 @@
 :root {
   color-scheme: light;
-  --global__color: #222;
+  --global__color: #fff;
   --global__line-height: 1.5;
-  --global__background-color: #fff;
+  --global__background-color: #000;
   --global__background-color--highlight: #fff;
-  --global__max-width: 112.5rem; // 1800px
+  --global__max-width: 72.375rem; // 1158px
   --global__z-index: 900;
   --global__clickable-area: 2.75rem; // 44px
 
   // Fonts
   --global-primary__font-weight--normal: 400;
   --global-primary__font-weight--bold: 700;
-  --global-primary__font-weight--heading: 400;
+  --global-primary__font-weight--heading: 900;
 
   // Font Family
-  --global-primary__font-family: "Montserrat", sans-serif;
-  --global-secondary__font-family: "Esteban", serif;
+  --global-primary__font-family: 'Roboto', sans-serif;
+  --global-secondary__font-family: 'Roboto', serif;
 
-  --global-icon__font-family: "FontAwesome", fantasy;
+  --global-icon__font-family: 'FontAwesome', fantasy;
   --global__icon--normal: 1.25rem; // 20px
 
   // Global Indents
-  --global__sidegap: 24px;
-
-  --global__sidegap-zero: 24px;
-  --global__sidegap-medium: 32px;
-  --global__sidegap-large: 48px;
-  --global__sidegap-xxlarge: 96px;
+  --global__sidegap: 34px;
 
   // Brand Colors
   --color__brand1: #21844a;
   --color__brand2: #5e9cf8;
-  --color__brand3: #f85eba;
-  --color__brand4: #f8e95e;
-  --color__brand5: #f8955e;
 
   // Default Colors
   --color__white: #fff;
@@ -74,18 +66,14 @@
 
   // Form Colors
   --form__color: var(--global__color);
-  --form__background-color: var(--color__background-color--light);
-  --form__border-color: transparent;
+  --form__background-color: transparent;
+  --form__border-color: var(--global__color);
 
-  --form__color--contrast: var(--global__color);
-  --form__background-color--contrast: var(--color__background-color--white);
-  --form__border-color--contrast: rgb(0 0 0 / 0.2);
-
-  --form__color--placeholder: rgb(0 0 0 / 0.7);
+  --form__color--placeholder: var(--global__color);
 
   --form__color--focus: var(--global__color);
-  --form__background-color--focus: var(--color__background-color--light);
-  --form__border-color--focus: rgb(0 0 0 / 0.2);
+  --form__background-color--focus: rgb(255 255 255 / 0.1);
+  --form__border-color--focus: var(--global__color);
 
   --form__color--disabled: rgb(0 0 0 / 0.5);
   --form__background-color--disabled: var(--color__background-color--light);
@@ -114,7 +102,7 @@
   --global__box-shadow--inner-small: 1px 1px 2px rgb(0 0 0 / 0.1) inset;
 
   // Interface Sugar
-  --global__border-radius: 6px;
+  --global__border-radius: 0;
   --global__transition-duration: 0.2s; // use for visually large elements
   --global__transition-function: ease-out;
   --global__transition-duration--fast: 0.15s; // use for visually small elements
@@ -124,15 +112,14 @@
 
   // Z-index
   --header__z-index: calc(var(--global__z-index) + 10);
-  --preloader__z-index: calc(var(--global__z-index) + 11);
-  --skiplink__z-index: calc(var(--global__z-index) + 99);
+  --nav__z-index: calc(var(--global__z-index) + 11);
 
   // Images ratio
   --global__image-ratio: 1;
 
   // Form controls
-  --global__field-padding--vt: 0.6875rem;
-  --global__field-padding--hz: 0.875rem;
+  --global__field-padding--vt: 1rem;
+  --global__field-padding--hz: 2rem;
 
   // A11Y feature to minimize the amount of non-essential motion.
   @media (prefers-reduced-motion) {

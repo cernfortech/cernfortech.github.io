@@ -1,4 +1,6 @@
-@use "../abstracts/media-queries" as mq;
+@use '../abstracts/media-queries' as mq;
+@use '../base/variables' as var;
+@use 'sass:color';
 
 @mixin global__indent($properties) {
   @each $tmp-mq, $tmp-properties in $properties {
@@ -7,4 +9,56 @@
       padding-right: #{$tmp-properties};
     }
   } // @each
+}
+
+@mixin button() {
+  height: 37px;
+  display: inline-flex;
+  text-decoration: none;
+  position: relative;
+  font-size: var(--button__font-size, 12px);
+  font-weight: var(--button__font-weight, 400);
+  white-space: nowrap;
+  letter-spacing: var(--button__letter-spacing, 2.4px);
+  text-transform: uppercase;
+  cursor: pointer;
+
+  span {
+    flex: 1;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: var(--button__color, var(--color__white));
+    padding: 0 0 0 var(--button__padding--hz, 12px);
+    border: 1px solid var(--button__border-color, var(--color__white));
+    border-right: none;
+    background-color: rgb(255 255 255 / 0.05);
+  }
+
+  &::after {
+    display: block;
+    content: '';
+    height: 37px;
+    width: var(--button__padding--hz, 12px);
+    background-color: var(--button__border-color, var(--color__white));
+    -webkit-mask-image: url(#{var.$global__assets-path}/bg__side.svg);
+    mask-image: url(#{var.$global__assets-path}/bg__side.svg);
+    mask-position: 100% 0;
+    mask-size: auto 100%;
+    mask-repeat: no-repeat;
+  }
+
+  &:hover,
+  &:active {
+    span {
+      color: var(--button__color--hover, var(--color__black));
+      background-color: var(--color__white);
+    }
+
+    &::after {
+      -webkit-mask-image: url(#{var.$global__assets-path}/bg__side--hover.svg);
+      mask-image: url(#{var.$global__assets-path}/bg__side--hover.svg);
+    }
+  }
 }
