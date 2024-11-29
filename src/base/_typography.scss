@@ -114,7 +114,7 @@ h6,
   padding-left: var(--ul__li-padding-left, 1.25em);
 
   &::before {
-    content: '';
+    content: "";
     display: var(--ul__li-icon--display, block);
     width: var(--ul__li-icon--width, 0.75em);
     height: var(--ul__li-icon--height, 0.75em);

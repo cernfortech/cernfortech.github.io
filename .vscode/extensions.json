@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "SomewhatStationery.some-sass",
+    "sibiraj-s.vscode-scss-formatter",
+    "mhutchie.git-graph",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "emmanuelbeziat.vscode-great-icons",
+    "christian-kohler.npm-intellisense",
+    "eamodio.gitlens"
+  ]
+}

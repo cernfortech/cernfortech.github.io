@@ -1,4 +1,4 @@
-@use '../helpers/classes';
+@use "../helpers/classes";
 
 *,
 *::before,
@@ -71,8 +71,8 @@
 
 :where(
     button,
-    input:is([type='button'], [type='reset'], [type='submit']),
-    input[type='file']::file-selector-button,
+    input:is([type="button"], [type="reset"], [type="submit"]),
+    input[type="file"]::file-selector-button,
     optgroup,
     select
   ) {

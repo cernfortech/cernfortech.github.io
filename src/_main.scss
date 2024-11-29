@@ -1,6 +1,6 @@
 // Abstracts
-@use 'abstracts/media-queries' as mq;
-@use 'base/variables' as var;
+@use "abstracts/media-queries" as mq;
+@use "base/variables" as var;
 
 .header {
   color: var(--color__white);
