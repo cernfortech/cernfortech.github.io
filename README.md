@@ -8,9 +8,7 @@ Install [`Node.js`](https://nodejs.org/en/download)
 
 Install [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-````
-
-Install node modules
+### Install node modules
 
 ```sh
 npm install
