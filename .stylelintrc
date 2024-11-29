@@ -1,0 +1,32 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "formatter": "verbose",
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "scss/operator-no-newline-after": null,
+    "scss/dollar-variable-pattern": null,
+    "scss/dollar-variable-empty-line-before": [
+      "always",
+      {
+        "except": "first-nested",
+        "ignore": ["after-dollar-variable", "after-comment"]
+      }
+    ],
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": ["mask-image"]
+      }
+    ],
+    "selector-class-pattern": "^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$",
+    "custom-property-empty-line-before": null,
+    "no-descending-specificity": null,
+    "custom-property-no-missing-var-function": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "custom-property-pattern": "^[a-z][-a-z0-9]+__[a-z][-a-z0-9]+$",
+    "alpha-value-notation": "number",
+    "scss/at-function-pattern": "^_?[a-z][-a-z0-9]+$",
+    "scss/at-mixin-pattern": "^[a-z][-_a-z0-9]+$",
+    "scss/percent-placeholder-pattern": null
+  }
+}

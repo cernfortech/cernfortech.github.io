@@ -1,5 +1,5 @@
-@use '../helpers/classes';
-@use '../base/variables' as var;
+@use "../helpers/classes";
+@use "../base/variables" as var;
 
 // Styles ==================================================
 .input {
@@ -136,7 +136,7 @@
     }
 
     // Change field's default controls
-    &[type='number'] {
+    &[type="number"] {
       appearance: textfield;
 
       &::-webkit-inner-spin-button,
@@ -147,10 +147,10 @@
     }
 
     // Make clickable the whole area of date/time inputs
-    &[type='date']::-webkit-calendar-picker-indicator,
-    &[type='date']:focus::-webkit-calendar-picker-indicator,
-    &[type='time']::-webkit-calendar-picker-indicator,
-    &[type='time']:focus::-webkit-calendar-picker-indicator {
+    &[type="date"]::-webkit-calendar-picker-indicator,
+    &[type="date"]:focus::-webkit-calendar-picker-indicator,
+    &[type="time"]::-webkit-calendar-picker-indicator,
+    &[type="time"]:focus::-webkit-calendar-picker-indicator {
       cursor: pointer;
       position: absolute;
       top: 0;
@@ -161,7 +161,7 @@
     }
 
     // Hide default icons of Search input
-    &[type='search'] {
+    &[type="search"] {
       &::-webkit-search-decoration,
       &::-webkit-search-cancel-button,
       &::-webkit-search-results-button,
@@ -271,11 +271,11 @@
 // Remove the dropdown arrow only from text type inputs built with datalists in Chrome.
 // See https://stackoverflow.com/a/54997118
 [list]:not(
-    [type='date'],
-    [type='datetime-local'],
-    [type='month'],
-    [type='week'],
-    [type='time']
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="week"],
+    [type="time"]
   )::-webkit-calendar-picker-indicator {
   display: none !important;
 }

@@ -1,4 +1,4 @@
-@use '../helpers/classes';
+@use "../helpers/classes";
 
 // Styles ==================================================
 
@@ -106,7 +106,7 @@
     cursor: pointer;
 
     &::before {
-      content: '';
+      content: "";
       width: var(--radio__icon-size, 1.5rem);
       height: var(--radio__icon-size, 1.5rem);
       border-radius: var(--radio__icon-border-radius, 50%);
