@@ -1,7 +1,7 @@
 {
-  "name": "ui_template",
+  "name": "challenge_template",
   "version": "0.0.1",
-  "description": "Basic UI template",
+  "description": "Challenge project",
   "engines": {
     "node": ">=20"
   },

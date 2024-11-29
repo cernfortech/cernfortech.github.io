@@ -1,4 +1,4 @@
-# UI template
+# Challenge project
 
 https://cernfortech.github.io/
 
